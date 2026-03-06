@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco Nadas | Cloud & DevOps</title>
+    <meta name="description"
+        content="Portfólio de Marco Nadas: Arquiteto Cloud, Especialista em VPS e Orquestrador de Multi-Agentes.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Syne for bold/streetwear headers, Space Grotesk for technical but edgy body -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        bape: {
+                            green01: '#3D4D32', /* Dark Jungle Green */
+                            green02: '#5C6D45', /* Olive/Camo Green */
+                            brown: '#8B6B4C',   /* Earthy Brown */
+                            cream: '#E5DDCB',   /* Off-white/Cream */
+                            black: '#0A0A09',   /* Deep Vantablack */
+                            accent: '#F2A900',  /* Bold Yellow/Gold Accent */
+                        }
+                    },
+                    backgroundImage: {
+                        'camo-pattern': "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%233d4d32\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Particle.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+
+<body
+    class="bg-[#0A0A09] text-bape-cream antialiased overflow-x-hidden selection:bg-bape-accent selection:text-bape-black bg-camo-pattern">
+
+    <!-- Streetwear Texture Overlay (Noise) -->
+    <div class="fixed inset-0 z-50 pointer-events-none opacity-[0.03] mix-blend-overlay"
+        style="background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');">
+    </div>
+
+    <!-- Particles Background (Customized for Jungle/Dust vibe) -->
+    <div id="particles-js" class="fixed inset-0 z-0 pointer-events-none opacity-40"></div>
+
+    <!-- Background Glows -->
+    <div
+        class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-bape-green01 rounded-full mix-blend-screen filter blur-[150px] opacity-30 z-0 animate-pulse-slow pointer-events-none">
+    </div>
+    <div
+        class="fixed bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-[#2A301E] rounded-full mix-blend-screen filter blur-[150px] opacity-40 z-0 pointer-events-none">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 bape-nav transition-all duration-300 py-5 px-6 md:px-12 flex justify-between items-center border-b border-bape-green01/30"
+        id="navbar">
+        <a href="#"
+            class="text-2xl font-display font-extrabold tracking-tighter flex items-center gap-2 group uppercase">
+            <span class="text-bape-accent group-hover:text-white transition-colors">/</span>
+            Marco<span class="text-bape-green02 drop-shadow-[0_0_8px_rgba(92,109,69,0.8)]">Nadas</span>
+            <span class="text-bape-accent group-hover:text-white transition-colors">/</span>
+        </a>
+        <div class="hidden md:flex gap-10 text-xs font-bold tracking-[0.2em] uppercase">
+            <a href="#about" class="nav-link hover:text-bape-accent transition-colors relative">Info</a>
+            <a href="#skills" class="nav-link hover:text-bape-accent transition-colors relative">Arsenal</a>
+            <a href="#projects" class="nav-link hover:text-bape-accent transition-colors relative">Ops</a>
+            <a href="#contact" class="nav-link hover:text-bape-accent transition-colors relative">Comms</a>
+        </div>
+        <a href="https://github.com/marconadas" target="_blank"
+            class="hidden md:flex items-center justify-center w-12 h-12 bg-bape-green01 hover:bg-bape-accent text-white hover:text-bape-black border-2 border-transparent hover:border-bape-black transition-all hover:-translate-y-1 font-display font-bold">
+            GH
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-40 pb-20 px-6 md:px-12 max-w-[1400px] mx-auto flex flex-col gap-40">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-[75vh] flex flex-col justify-center items-start fade-up relative">
+            <div class="absolute right-0 top-10 opacity-10 pointer-events-none hidden lg:block">
+                <h1 class="text-[12rem] font-display font-black text-bape-green02 writing-vertical-rl">A BATHING APE
+                </h1>
+            </div>
+
+            <div
+                class="inline-flex items-center gap-3 px-4 py-2 border-2 border-bape-green02 bg-bape-black/50 mb-8 uppercase text-xs font-bold tracking-widest text-bape-accent">
+                <span class="w-2 h-2 rounded-full bg-bape-accent animate-pulse"></span>
+                Arquiteto de Sistemas // Pronto para Operar
+            </div>
+
+            <h1 class="text-5xl md:text-8xl font-display font-black tracking-tighter leading-[0.9] mb-8 uppercase">
+                Operações de<br />
+                <span
+                    class="text-transparent border-text-camo hover:border-text-solid transition-all duration-500 cursor-default">Selva</span>
+                &<br />
+                <span class="text-bape-green02">Nativo na Cloud</span>
+            </h1>
+
+            <div class="flex flex-col md:flex-row gap-8 items-start md:items-center mt-4">
+                <p
+                    class="text-lg text-bape-cream/70 max-w-xl leading-relaxed font-medium border-l-4 border-bape-accent pl-6">
+                    Mestre em infraestruturas sofisticadas e sistemas autónomos multi-agentes. Lógica rigorosa, mestria
+                    profunda em VPS, e uma estética streetwear aplicada a código.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap gap-6 mt-12 w-full max-w-xl">
+                <a href="#projects"
+                    class="flex-1 text-center px-8 py-5 font-display font-bold uppercase tracking-widest bg-bape-accent text-bape-black hover:bg-white transition-all hover:scale-[1.02] border-2 border-transparent">
+                    Ver Operações
+                </a>
+                <a href="#contact"
+                    class="flex-1 text-center px-8 py-5 font-display font-bold uppercase tracking-widest border-2 border-bape-green02 text-bape-green02 hover:bg-bape-green02 hover:text-bape-black transition-all hover:scale-[1.02] bg-bape-black">
+                    Iniciar Contacto
+                </a>
+            </div>
+        </section>
+
+        <!-- About & Core Expertise (Brutalist Grid) -->
+        <section id="about" class="fade-up scroll-mt-32">
+            <div class="flex flex-col mb-16">
+                <p class="text-bape-accent font-bold tracking-[0.2em] text-sm uppercase mb-2">// Divisão 01</p>
+                <h2 class="text-5xl font-display font-black uppercase text-bape-cream">Informação Base</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-0 border-2 border-bape-green01 bg-bape-black">
+                <!-- Card 1 -->
+                <div
+                    class="p-10 border-b lg:border-b-0 lg:border-r border-bape-green01 hover:bg-bape-green01/20 transition-colors group">
+                    <div
+                        class="text-5xl font-display font-black text-bape-green01 mb-6 group-hover:text-bape-accent transition-colors">
+                        01.</div>
+                    <h3 class="text-2xl font-display font-bold mb-4 uppercase text-white">VPS & Infraestrutura</h3>
+                    <p class="text-bape-cream/60 leading-relaxed font-medium">Parametrização extrema de ambientes Linux.
+                        Proxies Nginx otimizadas contra DDoS, mestria em SystemD, e roteamento Cloudflare. Construção
+                        sólida para a selva.</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="p-10 border-b lg:border-b-0 lg:border-r border-bape-green01 hover:bg-bape-green01/20 transition-colors group bg-bape-green02/5">
+                    <div
+                        class="text-5xl font-display font-black text-bape-green01 mb-6 group-hover:text-bape-accent transition-colors">
+                        02.</div>
+                    <h3 class="text-2xl font-display font-bold mb-4 uppercase text-white">Sistemas Multi-Agente</h3>
+                    <p class="text-bape-cream/60 leading-relaxed font-medium">Arquiteto do projeto <i>OpenClaw</i>.
+                        Orquestração de enxames de LLMs (Claude, Kimi) em espaços de trabalho locais simultâneos.
+                        Automação avançada e escalada tática.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-10 hover:bg-bape-green01/20 transition-colors group">
+                    <div
+                        class="text-5xl font-display font-black text-bape-green01 mb-6 group-hover:text-bape-accent transition-colors">
+                        03.</div>
+                    <h3 class="text-2xl font-display font-bold mb-4 uppercase text-white">Estética de Dados</h3>
+                    <p class="text-bape-cream/60 leading-relaxed font-medium">Equilibro entre rigor de dados pesados e
+                        design de excelência. React, Vite e Python alimentando painéis de alto nível como o Mission
+                        Control e Arcasa BGApp.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section id="skills" class="fade-up scroll-mt-32">
+            <div class="flex flex-col mb-16 items-end text-right">
+                <p class="text-bape-accent font-bold tracking-[0.2em] text-sm uppercase mb-2">Divisão 02 //</p>
+                <h2 class="text-5xl font-display font-black uppercase text-bape-cream">O Arsenal</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Systems & DevOps -->
+                <div class="relative p-10 border-2 border-bape-green01 bg-[#0f120c]">
+                    <div class="absolute -top-4 -left-4 w-8 h-8 bg-bape-accent z-10"></div>
+                    <h3
+                        class="text-2xl font-display font-black text-white mb-10 uppercase tracking-widest border-b border-bape-green01 pb-4">
+                        Ops & Cloud
+                    </h3>
+                    <div class="space-y-6 list-none font-medium">
+                        <div class="group relative">
+                            <div class="flex justify-between text-lg mb-2 uppercase tracking-wide"><span
+                                    class="text-bape-cream group-hover:text-white transition-colors">Linux / VPS
+                                    Admin</span><span class="text-bape-accent font-display font-bold">95</span></div>
+                            <div class="w-full h-1 bg-bape-green01 overflow-hidden">
+                                <div
+                                    class="h-full bg-bape-accent w-[95%] origin-left scale-x-0 transition-transform duration-1000 ease-out fill-animation">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative">
+                            <div class="flex justify-between text-lg mb-2 uppercase tracking-wide"><span
+                                    class="text-bape-cream group-hover:text-white transition-colors">Nginx /
+                                    Cloudflare</span><span class="text-bape-accent font-display font-bold">90</span>
+                            </div>
+                            <div class="w-full h-1 bg-bape-green01 overflow-hidden">
+                                <div
+                                    class="h-full bg-bape-accent w-[90%] origin-left scale-x-0 transition-transform duration-1000 ease-out fill-animation delay-100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative">
+                            <div class="flex justify-between text-lg mb-2 uppercase tracking-wide"><span
+                                    class="text-bape-cream group-hover:text-white transition-colors">Docker /
+                                    PM2</span><span class="text-bape-accent font-display font-bold">88</span></div>
+                            <div class="w-full h-1 bg-bape-green01 overflow-hidden">
+                                <div
+                                    class="h-full bg-bape-accent w-[88%] origin-left scale-x-0 transition-transform duration-1000 ease-out fill-animation delay-200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Software Dev -->
+                <div class="relative p-10 border-2 border-bape-green01 bg-[#0f120c] translate-y-0 md:translate-y-8">
+                    <div class="absolute -bottom-4 -right-4 w-8 h-8 bg-bape-green02 z-10"></div>
+                    <h3
+                        class="text-2xl font-display font-black text-white mb-10 uppercase tracking-widest border-b border-bape-green01 pb-4">
+                        Código & Lógica
+                    </h3>
+                    <div class="space-y-6 font-medium">
+                        <div class="group relative">
+                            <div class="flex justify-between text-lg mb-2 uppercase tracking-wide"><span
+                                    class="text-bape-cream group-hover:text-white transition-colors">Python /
+                                    FastAPI</span><span class="text-bape-green02 font-display font-bold">92</span></div>
+                            <div class="w-full h-1 bg-bape-green01 overflow-hidden">
+                                <div
+                                    class="h-full bg-bape-green02 w-[92%] origin-left scale-x-0 transition-transform duration-1000 ease-out fill-animation">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative">
+                            <div class="flex justify-between text-lg mb-2 uppercase tracking-wide"><span
+                                    class="text-bape-cream group-hover:text-white transition-colors">React /
+                                    Node.js</span><span class="text-bape-green02 font-display font-bold">90</span></div>
+                            <div class="w-full h-1 bg-bape-green01 overflow-hidden">
+                                <div
+                                    class="h-full bg-bape-green02 w-[90%] origin-left scale-x-0 transition-transform duration-1000 ease-out fill-animation delay-100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative">
+                            <div class="flex justify-between text-lg mb-2 uppercase tracking-wide"><span
+                                    class="text-bape-cream group-hover:text-white transition-colors">Agentic AI
+                                    (LLMs)</span><span class="text-bape-green02 font-display font-bold">95</span></div>
+                            <div class="w-full h-1 bg-bape-green01 overflow-hidden">
+                                <div
+                                    class="h-full bg-bape-green02 w-[95%] origin-left scale-x-0 transition-transform duration-1000 ease-out fill-animation delay-200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skill Tags (Streetwear style patches) -->
+            <div class="flex flex-wrap gap-4 mt-16 justify-center">
+                <span class="skill-patch">POSTGRES</span>
+                <span class="skill-patch">VNC DESKTOP</span>
+                <span class="skill-patch">GITHUB ACTIONS</span>
+                <span class="skill-patch">TAILWIND</span>
+                <span class="skill-patch">SSH SEC</span>
+                <span class="skill-patch">BASH</span>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="fade-up scroll-mt-32">
+            <div class="flex flex-col mb-16">
+                <p class="text-bape-accent font-bold tracking-[0.2em] text-sm uppercase mb-2">// Divisão 03</p>
+                <h2 class="text-5xl font-display font-black uppercase text-bape-cream">Operações Táticas</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Project 1 -->
+                <div
+                    class="group relative bg-[#0f120c] border-[3px] border-bape-black hover:border-bape-accent transition-colors duration-300">
+                    <div
+                        class="absolute top-4 right-4 text-bape-green01 font-display font-black text-4xl opacity-50 z-20">
+                        01</div>
+                    <div
+                        class="h-64 bg-bape-green01/20 relative overflow-hidden flex items-center justify-center camo-bg-overlay">
+                        <div
+                            class="absolute inset-0 bg-bape-black/40 group-hover:bg-bape-black/10 transition-colors z-10">
+                        </div>
+                        <h3
+                            class="text-4xl font-display font-black text-white/90 z-20 uppercase tracking-widest group-hover:scale-110 transition-transform duration-500">
+                            OPENCLAW</h3>
+                    </div>
+                    <div class="p-8 relative z-20 bg-[#0f120c]">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-display font-bold uppercase text-white">Mission Control</h3>
+                            <a href="https://github.com/marconadas/mission-control" target="_blank"
+                                class="w-10 h-10 flex items-center justify-center bg-bape-green01 hover:bg-bape-accent text-white hover:text-bape-black transition-colors rounded-none">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-bape-cream/70 mb-8 font-medium leading-relaxed">
+                            Um servidor inteligente de Orquestração Multi-Agente hospedado em rede VPS. Liga um main hub
+                            JARVIS a LLMs locais e remotos e workspaces paralelos focados em programação e segurança,
+                            num ambiente de controlo tipo "Cyberdeck".
+                        </p>
+                        <div
+                            class="flex flex-wrap gap-3 uppercase font-display font-bold text-[10px] tracking-widest text-[#8b9186]">
+                            <span class="bg-bape-green01/20 px-3 py-1.5 border border-bape-green01/30">FastAPI</span>
+                            <span class="bg-bape-green01/20 px-3 py-1.5 border border-bape-green01/30">React</span>
+                            <span class="bg-bape-green01/20 px-3 py-1.5 border border-bape-green01/30">VPS</span>
+                            <span class="bg-bape-green01/20 px-3 py-1.5 border border-bape-green01/30">Claude API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="group relative bg-[#0f120c] border-[3px] border-bape-black hover:border-bape-green02 transition-colors duration-300">
+                    <div
+                        class="absolute top-4 right-4 text-bape-green01 font-display font-black text-4xl opacity-50 z-20">
+                        02</div>
+                    <div
+                        class="h-64 bg-bape-green02/10 relative overflow-hidden flex items-center justify-center camo-bg-overlay mix-blend-luminosity hover:mix-blend-normal">
+                        <div
+                            class="absolute inset-0 bg-bape-black/60 group-hover:bg-bape-black/10 transition-colors z-10">
+                        </div>
+                        <h3
+                            class="text-4xl font-display font-black text-bape-accent z-20 uppercase tracking-widest group-hover:scale-110 transition-transform duration-500">
+                            ARCASA<br />BGAPP</h3>
+                    </div>
+                    <div class="p-8 relative z-20 bg-[#0f120c]">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-display font-bold uppercase text-white">NeptuneView</h3>
+                            <a href="https://github.com/marconadas/arcasadeveloping-bgapp" target="_blank"
+                                class="w-10 h-10 flex items-center justify-center bg-bape-green02 hover:bg-white text-bape-black transition-colors rounded-none">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </a>
+                        </div>
+                        <p class="text-bape-cream/70 mb-8 font-medium leading-relaxed">
+                            Interface complexa de acompanhamento marítimo e painéis de estado ambiental. Processa
+                            camadas gigantes GeoJSON através de Web Workers num Frontend React, com previsões de Machine
+                            Learning. Deploy via Cloudflare Pages.
+                        </p>
+                        <div
+                            class="flex flex-wrap gap-3 uppercase font-display font-bold text-[10px] tracking-widest text-bape-accent/80">
+                            <span class="bg-bape-accent/10 px-3 py-1.5 border border-bape-accent/20">JavaScript</span>
+                            <span class="bg-bape-accent/10 px-3 py-1.5 border border-bape-accent/20">Cloudflare</span>
+                            <span class="bg-bape-accent/10 px-3 py-1.5 border border-bape-accent/20">GeoData UI</span>
+                            <span class="bg-bape-accent/10 px-3 py-1.5 border border-bape-accent/20">Web Workers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action / Footer -->
+        <section id="contact" class="fade-up py-20">
+            <div
+                class="border-[4px] border-bape-green01 bg-[#0A0A09] p-12 md:p-20 text-center relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 camo-bg-overlay opacity-5 group-hover:opacity-10 transition-opacity duration-1000">
+                </div>
+
+                <h2
+                    class="text-4xl md:text-6xl font-display font-black mb-8 relative z-10 uppercase leading-tight text-white drop-shadow-xl">
+                    Emprega a<br /><span class="text-bape-accent">Selva</span>
+                </h2>
+                <p class="text-bape-cream text-lg font-medium mb-12 max-w-xl mx-auto relative z-10">
+                    Precisas de uma arquitetura estóica, infraestrutura de deploy escalável, ou a tua própria rede de
+                    agentes programadores a funcionar 24/7? As minhas máquinas estão preparadas.
+                </p>
+                <div class="flex justify-center gap-6 relative z-10">
+                    <a href="mailto:marconadas@example.com"
+                        class="px-10 py-5 font-display font-bold text-lg uppercase tracking-widest bg-bape-green02 text-white hover:bg-white hover:text-bape-black transition-all hover:-translate-y-1 shadow-[8px_8px_0_0_#2A301E] hover:shadow-[12px_12px_0_0_#2A301E]">
+                        Iniciar Comms
+                    </a>
+                </div>
+
+                <!-- Decorative Elements -->
+                <div class="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-bape-accent"></div>
+                <div class="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-bape-accent"></div>
+                <div class="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-bape-accent"></div>
+                <div class="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-bape-accent"></div>
+            </div>
+        </section>
+
+        <footer class="pt-12 pb-8 flex flex-col items-center border-t-2 border-bape-green01/30">
+            <div
+                class="text-4xl font-display font-black tracking-tighter flex items-center gap-1 mb-6 text-bape-green01">
+                MN<span class="text-bape-accent">/</span>X
+            </div>
+            <p class="text-xs font-bold font-display uppercase tracking-[0.2em] text-bape-green02 mb-2">Criado por Cloud
+                Agents // Código Bruto</p>
+            <p class="text-xs font-medium text-bape-cream/40">© 2026 Marco Nadas. Área Segura.</p>
+        </footer>
+
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
